@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <title>吸血鬼騎士</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 158px 10px 10px 10px;
+            font-family: "華康童童體", "微軟正黑體", "標楷體", sans-serif !important;
+            color: #67070b !important;
+            font-size: 35px;
+            background-image: url("參考資料/img/0.jpg");
+            background-size: 20%;
+            line-height: 2;
+        }
+
+        b {
+            font-family: "華康兒風體W3", "微軟正黑體", "標楷體", sans-serif;
+            color: #67070b;
+            font-weight: bold;
+            font-size: 55px;
+        }
+
+        p {
+            margin: 0;
+        }
+    </style>
+    <style>
+        .open.a,
+        .open.b {
+            overflow: hidden;
+            animation: fade-out 1.5s linear 2.5s forwards;
+        }
+
+
+        .box {
+            width: 100%;
+            height: 12.5vh;
+            background-color: red;
+        }
+
+        #box:nth-child(odd),
+        .box:nth-child(odd) {
+            transform: translateX(-100%);
+            animation: slide-right 2s ease 0.5s forwards;
+        }
+
+        #box:nth-child(even),
+        .box:nth-child(even) {
+            transform: translateX(100%);
+            animation: slide-left 2s ease 0.5s forwards;
+        }
+
+        @keyframes slide-right {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slide-left {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fade-out {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                height: 0;
+            }
+        }
+
+        .boxa {
+            float: left;
+            background-color: #fe6666;
+            height: 15vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .boxb {
+            float: right;
+            background-color: #fe6666;
+            height: 15vh;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <style>
+        li {
+            display: inline-block;
+        }
+
+        li:hover {
+            background-color: red;
+            border: 5px solid red;
+            box-sizing: border-box;
+            border-radius: 50%;
+        }
+
+        a {
+            text-decoration: none;
+            color: #710f02 !important;
+        }
+
+        a:hover {
+            text-decoration: none;
+            border: 5px solid #710f02;
+            color: #67070b;
+            box-sizing: border-box;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 0 !important;
+        }
+
+        #navbar,
+        .navbar {
+            background-color: #fe6666 !important;
+            border: 5px solid #fe6666;
+            box-sizing: border-box;
+            border-radius: 5%;
+            margin-bottom: 10px;
+        }
+
+        .nav-item {
+            background-color: #fe6666;
+            margin: 5px;
+        }
+
+        .nav-link.disabled {
+            color: #710f02;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fe6666;
+            width: 100%;
+            height: 100%;
+            background-image: none !important;
+        }
+
+        .navbar-toggler-icon:hover {
+            background-color: red;
+            box-sizing: border-box;
+            border-radius: 5%;
+        }
+
+        .form-control {
+            border-color: #fe6666;
+        }
+
+        .btn:not(:disabled):not(.disabled) {
+            color: #710f02;
+            background-color: #fe6666;
+            border: 5px solid #67070b;
+        }
+
+        .btn-outline-success {
+            line-height: 0.5;
+        }
+
+        #banner-swiper {
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 5%;
+            border: 5px solid red;
+        }
+
+        .row {
+            margin: 0;
+        }
+
+        .velative {
+            position: relative;
+        }
+
+        .a {
+            top: 10px;
+            left: 10px;
+            font-size: 100px;
+        }
+
+        #menu.pt-5,
+        .py-5 {
+            list-style-type: none;
+            margin: 0 !important;
+            padding: 0px !important;
+        }
+
+        .row.justify-content-center {
+            height: 500px !important;
+        }
+
+        .section {
+            padding: 0;
+            border: 5px solid red;
+            box-sizing: border-box;
+            border-radius: 5%;
+            border-right: none;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        img.img-fluid {
+            max-width: 600px;
+            box-sizing: border-box;
+            border-radius: 5%;
+            border-right: none;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .section1 {
+            background-color: #fe6666 !important;
+            max-width: 585px;
+            border: 5px solid red;
+            box-sizing: border-box;
+            border-radius: 5%;
+            padding: 0 10px;
+            text-align: center;
+            float: left;
+            border-left: none;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .play {
+            display: inline-block;
+        }
+
+        #card-swiper {
+            padding: 0 30px;
+        }
+
+        .swiper-container {
+            width: 65%;
+            padding: 0;
+        }
+
+        .card {
+            margin-bottom: 10px;
+            background-color: #fe6666;
+            border: 5px solid red;
+        }
+
+        .card-img-top {
+            max-width: 100%;
+            max-height: 500px;
+        }
+
+        .text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .btn {
+            border: 2px solid red;
+            padding: 1px;
+            float: right;
+        }
+
+        @media (max-width:1200px) {
+            #card-swiper {
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width:420px) {
+            #card-swiper {
+                padding: 0 10px;
+            }
+        }
+
+        button {
+            padding: 1px 6px;
+            border-color: red;
+            background-color: #fe6666;
+        }
+
+        .btn-primary {
+            background-color: #fe6666;
+            border-color: red;
+        }
+
+        .pb-5,
+        .py-5 {
+            padding: 0 !important;
+            margin-top: 30px;
+        }
+
+        .row.justify-content-center {
+            width: 100%;
+        }
+
+        @media(min-width:1800px) {
+            .container {
+                max-width: 1600px;
+            }
+        }
+
+        .music {
+            background-color: #fe6666;
+            color: red;
+            box-sizing: border-box;
+            border-radius: 35%;
+            margin-right: 5px;
+        }
+
+        footer {
+            padding: 10px 0;
+            font-size: 12px;
+            text-align: center;
+            background-color: #300000;
+            color: red;
+            clear: right;
+            padding: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="relative">
+        <div class="absolute">
+            <div class="open b">
+                <div class="boxa">
+                    <b>吸血鬼</b>是存在的</div>
+                <div class="boxb">只是
+                    <b>妳</b>不曾察覺...</div>
+            </div>
+            <div class="open a">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+        </div>
+        <div class="absolute1">
+            <nav id="navbar" class="navbar fixed-top navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand animated infinite bounce" href="#">
+                        <b>ヴァンパイア騎士</b>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon animated infinite bounce">
+                            <b>導覽</b>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://japan.videoland.com.tw/channel/vam_k/">
+                                    <b>首頁</b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://zh.wikipedia.org/zh-tw/%E5%90%B8%E8%A1%80%E9%AC%BC%E9%A8%8E%E5%A3%AB#%E6%95%85%E4%BA%8B%E5%A4%A7%E7%B6%B1">
+                                    <b>劇名簡介</b>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <b>人物介紹</b>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#優姬">
+                                        <b>優姬（ゆうき）</b>
+                                    </a>
+                                    <a class="dropdown-item" href="#優姬">
+                                        <b>優姬（ゆうき）</b>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#優姬">
+                                        <b>優姬（ゆうき）</b>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="https://www.d3p.co.jp/vampire-knight-ds/">
+                                    <b>周邊小物</b>
+                                </a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                                <b>Search</b>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="swiper-container" id="banner-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="velative">
+                            <img class="w-100" src="參考資料/img/2.jpg" alt="ヴァンパイア騎士">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="velative">
+                            <img class="w-100" src="參考資料/img/3.jpg" alt="ヴァンパイア騎士">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="velative">
+                            <img class="w-100" src="參考資料/img/4.jpg" alt="ヴァンパイア騎士">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="velative">
+                            <img class="w-100" src="參考資料/img/5.jpg" alt="ヴァンパイア騎士">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="velative">
+                            <img class="w-100" src="參考資料/img/6.jpg" alt="ヴァンパイア騎士">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="velative">
+                            <img class="w-100" src="參考資料/img/7.jpg" alt="ヴァンパイア騎士">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            <div id="main" class="py-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="section col-12 col-sm-3">
+                            <a href="http://dmeden.net/comicinfo/2011.html">
+                                <img class="img-fluid" src="參考資料/img/1.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="section1 col-12 col-sm-9">
+                            <div class="up ">
+                                <p class="animated infinite bounce">
+                                    <b>《吸血鬼騎士》</b>
+                                </p>
+                                <p class="mid">(日語：ヴァンパイア騎士、英語：Vampire Knight）</p>
+                            </div>
+                            <div class="bottom">
+                                <p>
+                                    是一部漫畫家
+                                    <b>
+                                        <a class="play animated infinite bounce" href="https://zh.wikipedia.org/wiki/%E6%A8%8B%E9%87%8E%E8%8C%89%E7%90%86">樋野茉理</a>
+                                    </b>
+                                </p>
+                                所作的少女漫畫以及由此改編的電視動畫、輕小說與少女遊戲。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="section1" class="py-5">
+                <div class="container">
+                    <div class="swiper-container" id="card-swiper">
+                        <div class="swiper-wrapper">
+                            <div id="優姬" class="swiper-slide">
+                                <div class="card">
+                                    <img class="card-img-top" src="參考資料/img/8.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="title animated infinite bounce">
+                                            <b>優姬（ゆうき）</b>
+                                        </h5>
+                                        <p class="text">聲優：堀江由衣/香港：程文意</p>
+                                        <p class="text">女主，16-17歲，身高152cm，血型為O型，生日為六月，喜歡食物為薑汁燒肉和聖代，是黑主理事長之養女，同時也是黑主學園的風紀委員運動神經發達，但成績十分差，武器是從黑主灰闇所得到的獵人武器「狩獵女神（Artemis）」，分身為蝴蝶沒有五歲之前的記憶，十年前，在一場大雪中，受到一名墮落成「Level
+                                            E」的吸血鬼所襲擊，被純血種的樞所救，後被黑主理事長收養，並扶養長大，與零為青梅竹馬，為救零而讓他不斷吸食自己的血液，和他約好要是零墮落成「Level E」時會親手殺了他
+                                        </p>
+                                        <p class="text">自幼喜歡樞，但覺得自己與他有一道無法越過的牆，後來自己的身世之謎逐漸浮出，在喝下樞的血（先被他吸了血，昏過去後又被他在嘴裡強灌了他的血）的情況下恢復記憶，揭露自己的真實身分為純種吸血鬼__本名玖蘭優姬、玖蘭家的純血種公主，樞的妹妹，同時也是未婚妻，小時候，在李土的陰謀事件中，被母親樹里封鎖吸血鬼的基因;覺醒後，頭髮變長（原本及肩的棕髮長至及腰）武器「狩獵女神」自行改造成鐮刀，身為吸血鬼的自己能使用的獵人武器，擁有殺害純血種吸血鬼的力量
+                                            (母親樹里同樣擁有能使用獵人武器殺害純血種吸血鬼的能力，與女兒的武器相同是狩獵女神，估計是樹里把武器傳承給她) 和零聯手殺死李土後，明白自己已經不能再過著人類的生活，和樞一起離開學園，知道自己成了零的「敵人」，而且「敵人」的存在變成了他唯一活下去的理由，決定要不斷的逃離他
+                                            一年後，以樞的妹妹兼未婚妻的身分出席吸血鬼的晚宴，差一點吸了零的血之後，得知樞是玖蘭家族始祖的事實。在玖蘭樞殺死藍堂英父親下落不明之後，打算重新組織夜間部。起初受到其他吸血鬼的質疑，但是得到支葵千里、遠矢莉磨以及藍堂英等人的協助後，成功組織夜間部後來發現白鷺更所製的新血液錠劑會使黑主學園的夜間部學生失去理智，而後發現自己的血液能使他們恢復理智，所以將自己的血液提供給夜間部的貴族學生們
+                                            得知樞欲進行滅純血的計畫、親眼看到瑠佳因此受傷後，決心阻止樞，還用狩獵女神把長髮削短，為此甚至抹去了零的記憶，在知曉樞的真正計畫是成為製造吸血鬼獵人武器的新一代源金屬後，主動獻身，樞成為源金屬後，與零在一起共度千年時光。與樞育有一女、與零育有一子，在熔爐熄滅後，因無法以自熔爐中取回的心臟復活樞................
+                                        </p>
+                                        <a href="/1070801-更多分頁-完稿.html" class="btn btn-primary animated infinite bounce">
+                                            <b>更多</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="優姬" class="swiper-slide">
+                                <div class="card">
+                                    <img class="card-img-top" src="參考資料/img/8.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="title animated infinite bounce">
+                                            <b>優姬（ゆうき）</b>
+                                        </h5>
+                                        <p class="text">聲優：堀江由衣/香港：程文意</p>
+                                        <p class="text">女主，16-17歲，身高152cm，血型為O型，生日為六月，喜歡食物為薑汁燒肉和聖代，是黑主理事長之養女，同時也是黑主學園的風紀委員運動神經發達，但成績十分差，武器是從黑主灰闇所得到的獵人武器「狩獵女神（Artemis）」，分身為蝴蝶沒有五歲之前的記憶，十年前，在一場大雪中，受到一名墮落成「Level
+                                            E」的吸血鬼所襲擊，被純血種的樞所救，後被黑主理事長收養，並扶養長大，與零為青梅竹馬，為救零而讓他不斷吸食自己的血液，和他約好要是零墮落成「Level E」時會親手殺了他
+                                        </p>
+                                        <p class="text">自幼喜歡樞，但覺得自己與他有一道無法越過的牆，後來自己的身世之謎逐漸浮出，在喝下樞的血（先被他吸了血，昏過去後又被他在嘴裡強灌了他的血）的情況下恢復記憶，揭露自己的真實身分為純種吸血鬼__本名玖蘭優姬、玖蘭家的純血種公主，樞的妹妹，同時也是未婚妻，小時候，在李土的陰謀事件中，被母親樹里封鎖吸血鬼的基因;覺醒後，頭髮變長（原本及肩的棕髮長至及腰）武器「狩獵女神」自行改造成鐮刀，身為吸血鬼的自己能使用的獵人武器，擁有殺害純血種吸血鬼的力量
+                                            (母親樹里同樣擁有能使用獵人武器殺害純血種吸血鬼的能力，與女兒的武器相同是狩獵女神，估計是樹里把武器傳承給她) 和零聯手殺死李土後，明白自己已經不能再過著人類的生活，和樞一起離開學園，知道自己成了零的「敵人」，而且「敵人」的存在變成了他唯一活下去的理由，決定要不斷的逃離他
+                                            一年後，以樞的妹妹兼未婚妻的身分出席吸血鬼的晚宴，差一點吸了零的血之後，得知樞是玖蘭家族始祖的事實。在玖蘭樞殺死藍堂英父親下落不明之後，打算重新組織夜間部。起初受到其他吸血鬼的質疑，但是得到支葵千里、遠矢莉磨以及藍堂英等人的協助後，成功組織夜間部後來發現白鷺更所製的新血液錠劑會使黑主學園的夜間部學生失去理智，而後發現自己的血液能使他們恢復理智，所以將自己的血液提供給夜間部的貴族學生們
+                                            得知樞欲進行滅純血的計畫、親眼看到瑠佳因此受傷後，決心阻止樞，還用狩獵女神把長髮削短，為此甚至抹去了零的記憶，在知曉樞的真正計畫是成為製造吸血鬼獵人武器的新一代源金屬後，主動獻身，樞成為源金屬後，與零在一起共度千年時光。與樞育有一女、與零育有一子，在熔爐熄滅後，因無法以自熔爐中取回的心臟復活樞................
+                                        </p>
+                                        <a href="/1070801-更多分頁-完稿.html" class="btn btn-primary animated infinite bounce">
+                                            <b>更多</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="優姬" class="swiper-slide">
+                                <div class="card">
+                                    <img class="card-img-top" src="參考資料/img/8.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="title animated infinite bounce">
+                                            <b>優姬（ゆうき）</b>
+                                        </h5>
+                                        <p class="text">聲優：堀江由衣/香港：程文意</p>
+                                        <p class="text">女主，16-17歲，身高152cm，血型為O型，生日為六月，喜歡食物為薑汁燒肉和聖代，是黑主理事長之養女，同時也是黑主學園的風紀委員運動神經發達，但成績十分差，武器是從黑主灰闇所得到的獵人武器「狩獵女神（Artemis）」，分身為蝴蝶沒有五歲之前的記憶，十年前，在一場大雪中，受到一名墮落成「Level
+                                            E」的吸血鬼所襲擊，被純血種的樞所救，後被黑主理事長收養，並扶養長大，與零為青梅竹馬，為救零而讓他不斷吸食自己的血液，和他約好要是零墮落成「Level E」時會親手殺了他
+                                        </p>
+                                        <p class="text">自幼喜歡樞，但覺得自己與他有一道無法越過的牆，後來自己的身世之謎逐漸浮出，在喝下樞的血（先被他吸了血，昏過去後又被他在嘴裡強灌了他的血）的情況下恢復記憶，揭露自己的真實身分為純種吸血鬼__本名玖蘭優姬、玖蘭家的純血種公主，樞的妹妹，同時也是未婚妻，小時候，在李土的陰謀事件中，被母親樹里封鎖吸血鬼的基因;覺醒後，頭髮變長（原本及肩的棕髮長至及腰）武器「狩獵女神」自行改造成鐮刀，身為吸血鬼的自己能使用的獵人武器，擁有殺害純血種吸血鬼的力量
+                                            (母親樹里同樣擁有能使用獵人武器殺害純血種吸血鬼的能力，與女兒的武器相同是狩獵女神，估計是樹里把武器傳承給她) 和零聯手殺死李土後，明白自己已經不能再過著人類的生活，和樞一起離開學園，知道自己成了零的「敵人」，而且「敵人」的存在變成了他唯一活下去的理由，決定要不斷的逃離他
+                                            一年後，以樞的妹妹兼未婚妻的身分出席吸血鬼的晚宴，差一點吸了零的血之後，得知樞是玖蘭家族始祖的事實。在玖蘭樞殺死藍堂英父親下落不明之後，打算重新組織夜間部。起初受到其他吸血鬼的質疑，但是得到支葵千里、遠矢莉磨以及藍堂英等人的協助後，成功組織夜間部後來發現白鷺更所製的新血液錠劑會使黑主學園的夜間部學生失去理智，而後發現自己的血液能使他們恢復理智，所以將自己的血液提供給夜間部的貴族學生們
+                                            得知樞欲進行滅純血的計畫、親眼看到瑠佳因此受傷後，決心阻止樞，還用狩獵女神把長髮削短，為此甚至抹去了零的記憶，在知曉樞的真正計畫是成為製造吸血鬼獵人武器的新一代源金屬後，主動獻身，樞成為源金屬後，與零在一起共度千年時光。與樞育有一女、與零育有一子，在熔爐熄滅後，因無法以自熔爐中取回的心臟復活樞................
+                                        </p>
+                                        <a href="/1070801-更多分頁-完稿.html" class="btn btn-primary animated infinite bounce">
+                                            <b>更多</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="優姬" class="swiper-slide">
+                                <div class="card">
+                                    <img class="card-img-top" src="參考資料/img/8.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="title animated infinite bounce">
+                                            <b>優姬（ゆうき）</b>
+                                        </h5>
+                                        <p class="text">聲優：堀江由衣/香港：程文意</p>
+                                        <p class="text">女主，16-17歲，身高152cm，血型為O型，生日為六月，喜歡食物為薑汁燒肉和聖代，是黑主理事長之養女，同時也是黑主學園的風紀委員運動神經發達，但成績十分差，武器是從黑主灰闇所得到的獵人武器「狩獵女神（Artemis）」，分身為蝴蝶沒有五歲之前的記憶，十年前，在一場大雪中，受到一名墮落成「Level
+                                            E」的吸血鬼所襲擊，被純血種的樞所救，後被黑主理事長收養，並扶養長大，與零為青梅竹馬，為救零而讓他不斷吸食自己的血液，和他約好要是零墮落成「Level E」時會親手殺了他
+                                        </p>
+                                        <p class="text">自幼喜歡樞，但覺得自己與他有一道無法越過的牆，後來自己的身世之謎逐漸浮出，在喝下樞的血（先被他吸了血，昏過去後又被他在嘴裡強灌了他的血）的情況下恢復記憶，揭露自己的真實身分為純種吸血鬼__本名玖蘭優姬、玖蘭家的純血種公主，樞的妹妹，同時也是未婚妻，小時候，在李土的陰謀事件中，被母親樹里封鎖吸血鬼的基因;覺醒後，頭髮變長（原本及肩的棕髮長至及腰）武器「狩獵女神」自行改造成鐮刀，身為吸血鬼的自己能使用的獵人武器，擁有殺害純血種吸血鬼的力量
+                                            (母親樹里同樣擁有能使用獵人武器殺害純血種吸血鬼的能力，與女兒的武器相同是狩獵女神，估計是樹里把武器傳承給她) 和零聯手殺死李土後，明白自己已經不能再過著人類的生活，和樞一起離開學園，知道自己成了零的「敵人」，而且「敵人」的存在變成了他唯一活下去的理由，決定要不斷的逃離他
+                                            一年後，以樞的妹妹兼未婚妻的身分出席吸血鬼的晚宴，差一點吸了零的血之後，得知樞是玖蘭家族始祖的事實。在玖蘭樞殺死藍堂英父親下落不明之後，打算重新組織夜間部。起初受到其他吸血鬼的質疑，但是得到支葵千里、遠矢莉磨以及藍堂英等人的協助後，成功組織夜間部後來發現白鷺更所製的新血液錠劑會使黑主學園的夜間部學生失去理智，而後發現自己的血液能使他們恢復理智，所以將自己的血液提供給夜間部的貴族學生們
+                                            得知樞欲進行滅純血的計畫、親眼看到瑠佳因此受傷後，決心阻止樞，還用狩獵女神把長髮削短，為此甚至抹去了零的記憶，在知曉樞的真正計畫是成為製造吸血鬼獵人武器的新一代源金屬後，主動獻身，樞成為源金屬後，與零在一起共度千年時光。與樞育有一女、與零育有一子，在熔爐熄滅後，因無法以自熔爐中取回的心臟復活樞................
+                                        </p>
+                                        <a href="/1070801-更多分頁-完稿.html" class="btn btn-primary animated infinite bounce">
+                                            <b>更多</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="優姬" class="swiper-slide">
+                                <div class="card">
+                                    <img class="card-img-top" src="參考資料/img/8.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="title animated infinite bounce">
+                                            <b>優姬（ゆうき）</b>
+                                        </h5>
+                                        <p class="text">聲優：堀江由衣/香港：程文意</p>
+                                        <p class="text">女主，16-17歲，身高152cm，血型為O型，生日為六月，喜歡食物為薑汁燒肉和聖代，是黑主理事長之養女，同時也是黑主學園的風紀委員運動神經發達，但成績十分差，武器是從黑主灰闇所得到的獵人武器「狩獵女神（Artemis）」，分身為蝴蝶沒有五歲之前的記憶，十年前，在一場大雪中，受到一名墮落成「Level
+                                            E」的吸血鬼所襲擊，被純血種的樞所救，後被黑主理事長收養，並扶養長大，與零為青梅竹馬，為救零而讓他不斷吸食自己的血液，和他約好要是零墮落成「Level E」時會親手殺了他
+                                        </p>
+                                        <p class="text">自幼喜歡樞，但覺得自己與他有一道無法越過的牆，後來自己的身世之謎逐漸浮出，在喝下樞的血（先被他吸了血，昏過去後又被他在嘴裡強灌了他的血）的情況下恢復記憶，揭露自己的真實身分為純種吸血鬼__本名玖蘭優姬、玖蘭家的純血種公主，樞的妹妹，同時也是未婚妻，小時候，在李土的陰謀事件中，被母親樹里封鎖吸血鬼的基因;覺醒後，頭髮變長（原本及肩的棕髮長至及腰）武器「狩獵女神」自行改造成鐮刀，身為吸血鬼的自己能使用的獵人武器，擁有殺害純血種吸血鬼的力量
+                                            (母親樹里同樣擁有能使用獵人武器殺害純血種吸血鬼的能力，與女兒的武器相同是狩獵女神，估計是樹里把武器傳承給她) 和零聯手殺死李土後，明白自己已經不能再過著人類的生活，和樞一起離開學園，知道自己成了零的「敵人」，而且「敵人」的存在變成了他唯一活下去的理由，決定要不斷的逃離他
+                                            一年後，以樞的妹妹兼未婚妻的身分出席吸血鬼的晚宴，差一點吸了零的血之後，得知樞是玖蘭家族始祖的事實。在玖蘭樞殺死藍堂英父親下落不明之後，打算重新組織夜間部。起初受到其他吸血鬼的質疑，但是得到支葵千里、遠矢莉磨以及藍堂英等人的協助後，成功組織夜間部後來發現白鷺更所製的新血液錠劑會使黑主學園的夜間部學生失去理智，而後發現自己的血液能使他們恢復理智，所以將自己的血液提供給夜間部的貴族學生們
+                                            得知樞欲進行滅純血的計畫、親眼看到瑠佳因此受傷後，決心阻止樞，還用狩獵女神把長髮削短，為此甚至抹去了零的記憶，在知曉樞的真正計畫是成為製造吸血鬼獵人武器的新一代源金屬後，主動獻身，樞成為源金屬後，與零在一起共度千年時光。與樞育有一女、與零育有一子，在熔爐熄滅後，因無法以自熔爐中取回的心臟復活樞................
+                                        </p>
+                                        <a href="/1070801-更多分頁-完稿.html" class="btn btn-primary animated infinite bounce">
+                                            <b>更多</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="優姬" class="swiper-slide">
+                                <div class="card">
+                                    <img class="card-img-top" src="參考資料/img/8.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="title animated infinite bounce">
+                                            <b>優姬（ゆうき）</b>
+                                        </h5>
+                                        <p class="text">聲優：堀江由衣/香港：程文意</p>
+                                        <p class="text">女主，16-17歲，身高152cm，血型為O型，生日為六月，喜歡食物為薑汁燒肉和聖代，是黑主理事長之養女，同時也是黑主學園的風紀委員運動神經發達，但成績十分差，武器是從黑主灰闇所得到的獵人武器「狩獵女神（Artemis）」，分身為蝴蝶沒有五歲之前的記憶，十年前，在一場大雪中，受到一名墮落成「Level
+                                            E」的吸血鬼所襲擊，被純血種的樞所救，後被黑主理事長收養，並扶養長大，與零為青梅竹馬，為救零而讓他不斷吸食自己的血液，和他約好要是零墮落成「Level E」時會親手殺了他
+                                        </p>
+                                        <p class="text">自幼喜歡樞，但覺得自己與他有一道無法越過的牆，後來自己的身世之謎逐漸浮出，在喝下樞的血（先被他吸了血，昏過去後又被他在嘴裡強灌了他的血）的情況下恢復記憶，揭露自己的真實身分為純種吸血鬼__本名玖蘭優姬、玖蘭家的純血種公主，樞的妹妹，同時也是未婚妻，小時候，在李土的陰謀事件中，被母親樹里封鎖吸血鬼的基因;覺醒後，頭髮變長（原本及肩的棕髮長至及腰）武器「狩獵女神」自行改造成鐮刀，身為吸血鬼的自己能使用的獵人武器，擁有殺害純血種吸血鬼的力量
+                                            (母親樹里同樣擁有能使用獵人武器殺害純血種吸血鬼的能力，與女兒的武器相同是狩獵女神，估計是樹里把武器傳承給她) 和零聯手殺死李土後，明白自己已經不能再過著人類的生活，和樞一起離開學園，知道自己成了零的「敵人」，而且「敵人」的存在變成了他唯一活下去的理由，決定要不斷的逃離他
+                                            一年後，以樞的妹妹兼未婚妻的身分出席吸血鬼的晚宴，差一點吸了零的血之後，得知樞是玖蘭家族始祖的事實。在玖蘭樞殺死藍堂英父親下落不明之後，打算重新組織夜間部。起初受到其他吸血鬼的質疑，但是得到支葵千里、遠矢莉磨以及藍堂英等人的協助後，成功組織夜間部後來發現白鷺更所製的新血液錠劑會使黑主學園的夜間部學生失去理智，而後發現自己的血液能使他們恢復理智，所以將自己的血液提供給夜間部的貴族學生們
+                                            得知樞欲進行滅純血的計畫、親眼看到瑠佳因此受傷後，決心阻止樞，還用狩獵女神把長髮削短，為此甚至抹去了零的記憶，在知曉樞的真正計畫是成為製造吸血鬼獵人武器的新一代源金屬後，主動獻身，樞成為源金屬後，與零在一起共度千年時光。與樞育有一女、與零育有一子，在熔爐熄滅後，因無法以自熔爐中取回的心臟復活樞................
+                                        </p>
+                                        <a href="/1070801-更多分頁-完稿.html" class="btn btn-primary animated infinite bounce">
+                                            <b>更多</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://youtu.be/nOZs9ZbIM9c" class="music">
+                <b>music</b>
+            </a>
+            <a href="https://youtu.be/UQJILYixpsA" class="music">
+                <b>video</b>
+            </a>
+
+            <footer>
+                <span>吸血鬼の騎士 © 2018 07 20</span>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+
+        <script>
+            $(".navbar - brand").click(function () {
+                $(window).scrollTop(0);
+            });
+        </script>
+
+        <script>
+            AOS.init();
+            var banner_swiper = new Swiper('#banner-swiper', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+            });
+        </script>
+        <script>
+            AOS.init();
+            var card_swiper = new Swiper('#card-swiper', {
+                slidesPerView: 4,
+                slidesPerGroup: 4,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    1200: {
+                        slidesPerView: 2,
+                        slidesPerGroup: 2,
+                        spaceBetween: 30,
+                    },
+                    420: {
+                        slidesPerView: 1,
+                        slidesPerGroup: 1,
+                    }
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                coverflowEffect: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            });
+        </script>
+    </div>
+</body>
+
+</html>
